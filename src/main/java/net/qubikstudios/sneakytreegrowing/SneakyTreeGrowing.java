@@ -2,20 +2,29 @@ package net.qubikstudios.sneakytreegrowing;
 
 import net.qubikstudios.sneakytreegrowing.commands.ToggleModes;
 import net.qubikstudios.sneakytreegrowing.events.PlayerSneak;
+import net.qubikstudios.sneakytreegrowing.util.ConfigNames;
+import net.qubikstudios.sneakytreegrowing.util.PluginConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public final class SneakyTreeGrowing extends JavaPlugin {
+
+    private PluginConfig pluginConfig;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
 
+        if(pluginConfig == null)
+            pluginConfig = PluginConfig.loadConfiguration(new File(getDataFolder(), "config.yml"));
+
         getCommand("SneakyTreeGrowing").setExecutor(new ToggleModes(this));
 
-        var treeState = getConfig().getBoolean("SneakyTreeGrowing.TreeSettings.EnableTreeMeal");
-        var cropsState = getConfig().getBoolean("SneakyTreeGrowing.CropSettings.EnableCropMeal");
-        var tagsState = getConfig().getBoolean("SneakyTreeGrowing.CustomTag.EnableCustomTags");
+        var treeState = getPluginConfig().getBoolean(ConfigNames.TREE_ENABLED);
+        var cropsState = getPluginConfig().getBoolean(ConfigNames.CROP_ENABLED);
+        var tagsState = getPluginConfig().getBoolean(ConfigNames.CUSTOM_ENABLED);
 
         Bukkit.getConsoleSender().sendMessage("|----------> SneakyTreeGrowing <----------|");
         Bukkit.getConsoleSender().sendMessage("|                                         |");
@@ -32,5 +41,9 @@ public final class SneakyTreeGrowing extends JavaPlugin {
     @Override
     public void onDisable() {
         //Nothing
+    }
+
+    public PluginConfig getPluginConfig() {
+        return pluginConfig;
     }
 }
