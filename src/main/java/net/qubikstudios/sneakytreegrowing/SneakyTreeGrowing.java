@@ -1,7 +1,7 @@
 package net.qubikstudios.sneakytreegrowing;
 
 import net.qubikstudios.sneakytreegrowing.commands.ToggleModes;
-import net.qubikstudios.sneakytreegrowing.events.PlayerSneak;
+import net.qubikstudios.sneakytreegrowing.events.PlayerSneakEvent;
 import net.qubikstudios.sneakytreegrowing.util.ConfigNames;
 import net.qubikstudios.sneakytreegrowing.util.PluginConfig;
 import org.bukkit.Bukkit;
@@ -35,7 +35,7 @@ public final class SneakyTreeGrowing extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage("|                                         |");
         Bukkit.getConsoleSender().sendMessage("|-----------------------------------------|");
 
-        getServer().getPluginManager().registerEvents(new PlayerSneak(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerSneakEvent(this), this);
     }
 
     @Override
