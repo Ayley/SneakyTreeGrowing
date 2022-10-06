@@ -7,6 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +25,7 @@ public class ToggleModes implements TabExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if(args.length < 2)
+        if(args.length < 2 || !sender.isOp())
             return false;
 
         if(args[0].equals("toggle")){
@@ -47,7 +49,11 @@ public class ToggleModes implements TabExecutor {
                 conf.set(ConfigNames.CUSTOM_ENABLED, !currentState);
                 sender.sendMessage("Growing tags are now set to: " + result);
             }
-            instance.saveConfig();
+            try {
+                conf.save(new File(instance.getDataFolder(), "config.yml"));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             return true;
         }
 
