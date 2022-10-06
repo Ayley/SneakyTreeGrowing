@@ -4,7 +4,7 @@ public enum ConfigNames {
 
     //Tree
     TREE_NEED_PERMISSION("SneakyTreeGrowing.TreeSettings.NeedPermission"),
-    TREE_ENABLE("SneakyTreeGrowing.TreeSettings.Enabled"),
+    TREE_ENABLED("SneakyTreeGrowing.TreeSettings.Enabled"),
     TREE_RADIUS("SneakyTreeGrowing.TreeSettings.Radius"),
     TREE_CHANCE("SneakyTreeGrowing.TreeSettings.Chance"),
 
