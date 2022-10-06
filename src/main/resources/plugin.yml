@@ -5,7 +5,7 @@ api-version: 1.19
 authors: [ Kleidukos ]
 commands:
   SneakyTreeGrowing:
-    usage: /stg toggle <tree/crops/tags>
+    usage: /stg toggle <tree/crops/tags> (need op permission)
     description: Use toggle <tree/crops/tags> for toggle the growing modes
     aliases:
       - sneakygrowing
