@@ -1,3 +1,3 @@
 # SneakyTreeGrowing
-Its the same as [Qubik-Studios SneakyTreeGrowing](https://github.com/Qubik-Studios/Sneaky-Tree-Growing)
+Its the same as [Qubik-Studios SneakyTreeGrowing](https://github.com/Qubik-Studios/Sneaky-Tree-Growing) <br />
 I am the developer of the [Spigot](https://www.curseforge.com/minecraft/bukkit-plugins/sneaky-tree-growing-spigot) version
